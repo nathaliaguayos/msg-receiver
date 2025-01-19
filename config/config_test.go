@@ -1,7 +1,7 @@
 package config_test
 
 import (
-	"github.com/nathaliaguayos/msg-receiver/internal/config"
+	"github.com/nathaliaguayos/msg-receiver/config"
 	"github.com/stretchr/testify/require"
 	"os"
 	"strings"
@@ -40,6 +40,8 @@ func TestGet(t *testing.T) {
 				return map[string]string{
 					config.EnvPrefix + "_SERVICE_NAME": "msg-receiver",
 					config.EnvPrefix + "_LOG_LEVEL":    "info",
+					config.EnvPrefix + "_SECRET_KEY":   "secret",
+					config.EnvPrefix + "_ISSUER":       "userName",
 				}
 			},
 			assert: func(t *testing.T, c *config.Config, err error) {
@@ -48,6 +50,11 @@ func TestGet(t *testing.T) {
 				require.Equal(t, &config.Config{
 					ServiceName: "msg-receiver",
 					LogLevel:    "info",
+					SecretKey:   "secret",
+					Issuer:      "userName",
+					Port:        8080,
+					Host:        "0.0.0.0",
+					RateLimit:   5,
 				}, c, "invalid config returned")
 			},
 		},

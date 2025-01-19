@@ -9,8 +9,13 @@ import (
 const EnvPrefix = "MSG_RECEIVER"
 
 type Config struct {
-	ServiceName string `split_words:"true" default:"msg-receiver"`
-	LogLevel    string `split_words:"true" default:"info"`
+	ServiceName string  `split_words:"true" default:"msg-receiver"`
+	LogLevel    string  `split_words:"true" default:"info"`
+	SecretKey   string  `split_words:"true" required:"true"`
+	Issuer      string  `split_words:"true" required:"true"`
+	Port        uint    `required:"true" default:"8080"`
+	Host        string  `default:"0.0.0.0"`
+	RateLimit   float64 `default:"5"`
 }
 
 func Get() (*Config, error) {

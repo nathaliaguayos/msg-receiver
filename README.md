@@ -33,7 +33,7 @@ You can run the unit test simply by running:
 make test
 ```
 ## Deployment
-Once you create a PR to `main` a GitHub action will run the testing suite, if it succeed, then you will be able to merge the PR.
+Once you create a PR to `main` a GitHub action will run the testing suite, if it succeeds, then you will be able to merge the PR.
 
 
 1. After merging a PR for this repo, you should tag it with the version of the [`VERSION`](/internal/version/VERSION) file in `main` branch
