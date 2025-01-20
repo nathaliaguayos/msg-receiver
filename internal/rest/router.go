@@ -30,6 +30,7 @@ func NewRestClient(log *zerolog.Logger, jwtHandler *handlers.JWTHandler, rateLim
 
 	router := gin.Default()
 	router.Use(middleware.RateLimiter(rate.Limit(rateLimit)))
+	log.Info().Int("rate_limit", int(rateLimit)).Msg("configured rate limit")
 	router.POST("/token", jwtHandler.GenerateToken)
 
 	instance.Router = router
