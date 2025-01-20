@@ -1,5 +1,5 @@
 run:
-	source ./local.env && go run cmd/msg-receiver/main.go
+	go run cmd/main.go
 .PHONY: run
 
 generate:

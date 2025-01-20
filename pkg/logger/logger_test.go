@@ -1,8 +1,8 @@
 package logger_test
 
 import (
-	"github.com/nathaliaguayos/msg-receiver/internal/config"
-	"github.com/nathaliaguayos/msg-receiver/internal/logger"
+	"github.com/nathaliaguayos/msg-receiver/config"
+	"github.com/nathaliaguayos/msg-receiver/pkg/logger"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"
 	"testing"

@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/nathaliaguayos/msg-receiver/internal/config"
+	"github.com/nathaliaguayos/msg-receiver/config"
 	"github.com/nathaliaguayos/msg-receiver/internal/version"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/pkgerrors"
