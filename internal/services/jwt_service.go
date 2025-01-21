@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+// JWTService is a contract for JWT service
+//
+//counterfeiter:generate . JWTService
 type JWTService interface {
 	GenerateToken(userID string) (string, error)
 	ValidateToken(token string) (*jwt.Token, error)
