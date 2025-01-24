@@ -6,17 +6,27 @@ import (
 	"net/http"
 )
 
-type JWTHandler struct {
+// JWTHandler is the interface that provides JWT handling methods.
+//
+//counterfeiter:generate . JWTHandler
+type JWTHandler interface {
+	GenerateToken(c *gin.Context)
+}
+
+type jwtHandler struct {
 	jwtService services.JWTService
 }
 
-func NewJWTHandler(jwtService services.JWTService) *JWTHandler {
-	return &JWTHandler{
+// NewJWTHandler creates a new JWTHandler.
+func NewJWTHandler(jwtService services.JWTService) JWTHandler {
+	return &jwtHandler{
 		jwtService: jwtService,
 	}
 }
 
-func (h *JWTHandler) GenerateToken(c *gin.Context) {
+// GenerateToken generates a JWT token.
+// Params: c *gin.Context - the request context
+func (h *jwtHandler) GenerateToken(c *gin.Context) {
 	var request struct {
 		UserID string `json:"user_id" binding:"required"`
 	}

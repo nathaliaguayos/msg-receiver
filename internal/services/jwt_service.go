@@ -18,6 +18,7 @@ type jwtService struct {
 	issuer    string
 }
 
+// NewJWTService creates a new JWT service
 func NewJWTService(secretKey, issuer string) JWTService {
 	return &jwtService{
 		secretKey: secretKey,
@@ -25,6 +26,8 @@ func NewJWTService(secretKey, issuer string) JWTService {
 	}
 }
 
+// GenerateToken generates a new JWT token
+// Params: userID string - the user ID
 func (s *jwtService) GenerateToken(userID string) (string, error) {
 	claims := jwt.MapClaims{
 		"sub": userID,
@@ -36,6 +39,8 @@ func (s *jwtService) GenerateToken(userID string) (string, error) {
 	return token.SignedString([]byte(s.secretKey))
 }
 
+// ValidateToken validates a JWT token
+// Params: token string - the JWT token
 func (s *jwtService) ValidateToken(token string) (*jwt.Token, error) {
 	return jwt.Parse(token, func(t *jwt.Token) (interface{}, error) {
 		if _, ok := t.Method.(*jwt.SigningMethodHMAC); !ok {

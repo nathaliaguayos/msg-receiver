@@ -9,13 +9,15 @@ import (
 	"golang.org/x/time/rate"
 )
 
+// Client represents a REST client.
 type Client struct {
 	Logger     *zerolog.Logger
 	Router     *gin.Engine
-	jwtHandler *handlers.JWTHandler
+	jwtHandler handlers.JWTHandler
 }
 
-func NewRestClient(log *zerolog.Logger, jwtHandler *handlers.JWTHandler, rateLimit float64) (*Client, error) {
+// NewRestClient creates a new REST client.
+func NewRestClient(log *zerolog.Logger, jwtHandler handlers.JWTHandler, rateLimit float64) (*Client, error) {
 	if log == nil {
 		return nil, errors.New("logger should not be null")
 	}
