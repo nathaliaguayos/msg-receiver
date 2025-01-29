@@ -1,0 +1,3 @@
+ignore:
+  - "**/*fakes/*"
+  - "cmd/main.go"
