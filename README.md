@@ -1,4 +1,7 @@
 [![Development strategy](https://img.shields.io/static/v1?label=DEVELOPMENT%20STRATEGY&message=GITHUB%20FLOW&color=blue)](https://docs.github.com/en/get-started/quickstart/github-flow)
+
+[![codecov](https://codecov.io/gh/nathaliaguayos/msg-receiver/graph/badge.svg?token=QAQW0U4XM2)](https://codecov.io/gh/nathaliaguayos/msg-receiver)
+
 # msg-receiver
 
 ## General Description

@@ -3,10 +3,10 @@ name: Go Test
 on:
   push:
     branches:
-      - main  # or 'master' or any branch you want to target
+      - main
   pull_request:
     branches:
-      - main  # or 'master' or any branch you want to target
+      - main
 
 jobs:
   build:
@@ -22,5 +22,13 @@ jobs:
       - name: Install dependencies
         run: go mod tidy
 
-      - name: Run tests
-        run: go test -v ./...
+      - name: Run tests with coverage
+        run: go test -v -coverprofile=coverage.out ./...
+
+      - name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage.out
+          fail_ci_if_error: true  # Fails the CI if upload fails
+          flags: unittests
+          verbose: true
